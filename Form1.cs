@@ -49,10 +49,10 @@ namespace ImageSorter
                 try
                 {
                     DirAndDate.Clear();
+                    SortedItemCount = 0;
                     Thread thread = new Thread(() =>
                     {
                         FindFiles();
-                        FolderSetup();
                         Mover();
                         MessageBox.Show(String.Format("Sorted {0} / {1} items!", SortedItemCount, DirAndDate.Keys.Count), "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     });
@@ -81,27 +81,27 @@ namespace ImageSorter
             }
         }
 
-        public void FolderSetup()
-        {
-            foreach (string x in DirAndDate.Values)
-            {
-                string path = StoreDirectory + x;
-                if (!System.IO.Directory.Exists(path))
-                {
-                    System.IO.Directory.CreateDirectory(path);
-                }
-            }
-        }
-
         public void Mover()
         {
             foreach (string FilePath in DirAndDate.Keys)
             {
                 try
                 {
+                    string path = StoreDirectory + DirAndDate[FilePath].ToString() + @"\";
+                    if (!System.IO.Directory.Exists(path))
+                    {
+                        System.IO.Directory.CreateDirectory(path);
+                    }
                     FileInfo File = new FileInfo(FilePath);
-                    string EndPath = StoreDirectory + DirAndDate[FilePath].ToString() + @"\" + File.Name;
-                    File.MoveTo(EndPath, true);
+                    string EndPath = path + File.Name;
+                    if (CopyRadioButton.Checked == true)
+                    {
+                        File.CopyTo(EndPath, true);
+                    }
+                    if (MoveRadioButton.Checked == true)
+                    {
+                        File.MoveTo(EndPath, true);
+                    }
                     SortedItemCount += 1;
                 }
                 catch (Exception e)
@@ -123,7 +123,7 @@ namespace ImageSorter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            CopyRadioButton.Checked = true;
         }
     }
 }

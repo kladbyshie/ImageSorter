@@ -37,25 +37,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SortButton = new System.Windows.Forms.Button();
+            this.CopyRadioButton = new System.Windows.Forms.RadioButton();
+            this.MoveRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // FindTextbox
             // 
             this.FindTextbox.Location = new System.Drawing.Point(25, 33);
             this.FindTextbox.Name = "FindTextbox";
-            this.FindTextbox.Size = new System.Drawing.Size(493, 27);
+            this.FindTextbox.Size = new System.Drawing.Size(226, 27);
             this.FindTextbox.TabIndex = 0;
             // 
             // StoreTextbox
             // 
             this.StoreTextbox.Location = new System.Drawing.Point(25, 86);
             this.StoreTextbox.Name = "StoreTextbox";
-            this.StoreTextbox.Size = new System.Drawing.Size(493, 27);
+            this.StoreTextbox.Size = new System.Drawing.Size(226, 27);
             this.StoreTextbox.TabIndex = 1;
             // 
             // FindButton
             // 
-            this.FindButton.Location = new System.Drawing.Point(544, 31);
+            this.FindButton.Location = new System.Drawing.Point(257, 33);
             this.FindButton.Name = "FindButton";
             this.FindButton.Size = new System.Drawing.Size(135, 29);
             this.FindButton.TabIndex = 2;
@@ -65,7 +67,7 @@
             // 
             // StoreButton
             // 
-            this.StoreButton.Location = new System.Drawing.Point(544, 86);
+            this.StoreButton.Location = new System.Drawing.Point(257, 86);
             this.StoreButton.Name = "StoreButton";
             this.StoreButton.Size = new System.Drawing.Size(135, 29);
             this.StoreButton.TabIndex = 3;
@@ -93,7 +95,7 @@
             // 
             // SortButton
             // 
-            this.SortButton.Location = new System.Drawing.Point(697, 31);
+            this.SortButton.Location = new System.Drawing.Point(502, 28);
             this.SortButton.Name = "SortButton";
             this.SortButton.Size = new System.Drawing.Size(106, 82);
             this.SortButton.TabIndex = 6;
@@ -101,11 +103,35 @@
             this.SortButton.UseVisualStyleBackColor = true;
             this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
             // 
+            // CopyRadioButton
+            // 
+            this.CopyRadioButton.AutoSize = true;
+            this.CopyRadioButton.Location = new System.Drawing.Point(398, 38);
+            this.CopyRadioButton.Name = "CopyRadioButton";
+            this.CopyRadioButton.Size = new System.Drawing.Size(95, 24);
+            this.CopyRadioButton.TabIndex = 7;
+            this.CopyRadioButton.TabStop = true;
+            this.CopyRadioButton.Text = "Copy files";
+            this.CopyRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // MoveRadioButton
+            // 
+            this.MoveRadioButton.AutoSize = true;
+            this.MoveRadioButton.Location = new System.Drawing.Point(398, 86);
+            this.MoveRadioButton.Name = "MoveRadioButton";
+            this.MoveRadioButton.Size = new System.Drawing.Size(98, 24);
+            this.MoveRadioButton.TabIndex = 8;
+            this.MoveRadioButton.TabStop = true;
+            this.MoveRadioButton.Text = "Move files";
+            this.MoveRadioButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 135);
+            this.ClientSize = new System.Drawing.Size(627, 135);
+            this.Controls.Add(this.MoveRadioButton);
+            this.Controls.Add(this.CopyRadioButton);
             this.Controls.Add(this.SortButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,6 +158,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button SortButton;
+        private System.Windows.Forms.RadioButton CopyRadioButton;
+        private System.Windows.Forms.RadioButton MoveRadioButton;
     }
 }
 
